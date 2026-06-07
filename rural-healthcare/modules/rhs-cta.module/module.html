@@ -1,0 +1,14 @@
+{{ require_css(get_asset_url("../../css/rhs-landing.css")) }}
+<section class="rhs">
+  <div class="rhs-finalcta"{% if module.anchor_id %} id="{{ module.anchor_id }}"{% endif %}>
+    <div class="rhs-container rhs-wide">
+      {% if module.heading %}<h2>{{ module.heading }}</h2>{% endif %}
+      {% if module.body_richtext %}{{ module.body_richtext }}{% endif %}
+      {% if module.button_text %}
+        <div class="rhs-btn-row">
+          <a href="{{ module.button_url }}" class="rhs-btn rhs-btn-primary">{{ module.button_text }}</a>
+        </div>
+      {% endif %}
+    </div>
+  </div>
+</section>

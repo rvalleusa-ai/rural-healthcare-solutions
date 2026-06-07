@@ -1,0 +1,7 @@
+[
+  { "name": "anchor_id", "label": "Anchor ID (for in-page links)", "type": "text", "default": "contact" },
+  { "name": "heading", "label": "Heading", "type": "text", "default": "Strengthen Care in the Communities You Serve" },
+  { "name": "body_richtext", "label": "Body", "type": "richtext", "default": "<p>Talk with our rural healthcare specialists about Sphere IQ, centralized monitoring, and a roadmap tailored to your facility.</p>" },
+  { "name": "button_text", "label": "Button text", "type": "text", "default": "Contact Us" },
+  { "name": "button_url", "label": "Button URL", "type": "text", "default": "mailto:rural@spacelabs.example" }
+]

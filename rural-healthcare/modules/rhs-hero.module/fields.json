@@ -1,0 +1,8 @@
+[
+  { "name": "heading", "label": "Heading", "type": "text", "default": "Rural Healthcare Solutions" },
+  { "name": "subheading", "label": "Subheading", "type": "text", "default": "Improve patient outcomes. Expand access. Optimize resources." },
+  { "name": "body_richtext", "label": "Body", "type": "richtext", "default": "<p>Rural hospitals serve millions of patients across the United States while operating with lean teams and rising pressure. Connected patient monitoring, clinical surveillance, and predictive analytics help healthcare leaders strengthen care delivery and make the most of every resource.</p>" },
+  { "name": "button_text", "label": "Button text", "type": "text", "default": "Contact Us" },
+  { "name": "button_url", "label": "Button URL", "type": "text", "default": "#contact" },
+  { "name": "background_image", "label": "Background image", "type": "image", "responsive": true, "default": { "src": "", "alt": "Clinician at a patient monitoring station", "loading": "eager" } }
+]

@@ -1,0 +1,29 @@
+[
+  { "name": "background", "label": "Background", "type": "choice", "display": "select",
+    "choices": [["default", "Light (default)"], ["alt", "Light gray (alternate)"]], "default": "alt" },
+  { "name": "width", "label": "Content width", "type": "choice", "display": "select",
+    "choices": [["narrow", "Narrow"], ["wide", "Wide"]], "default": "narrow" },
+  { "name": "heading", "label": "Heading", "type": "text", "default": "" },
+  { "name": "accent_text", "label": "Heading accent text (red)", "type": "text", "default": "" },
+  { "name": "accent_first", "label": "Show accent text before heading", "type": "boolean", "display": "toggle", "default": false },
+  { "name": "intro", "label": "Intro paragraphs", "type": "richtext", "default": "" },
+  { "name": "layout", "label": "Item layout", "type": "choice", "display": "select",
+    "choices": [["none", "Text only (no items)"], ["chips", "Chips (icon + label)"], ["features", "Features (icon + title + text)"], ["trust", "Trust bar (centered, icon on top)"], ["steps", "Numbered steps"]],
+    "default": "features" },
+  { "name": "columns", "label": "Columns", "type": "choice", "display": "select",
+    "choices": [["2", "2"], ["3", "3"], ["4", "4"]], "default": "3" },
+  { "name": "chip_align_top", "label": "Align chips to top (multi-line labels)", "type": "boolean", "display": "toggle", "default": false },
+  {
+    "name": "items", "label": "Items", "type": "group",
+    "occurrence": { "min": 0, "max": 12, "default": 0 },
+    "children": [
+      { "name": "icon", "label": "Icon", "type": "choice", "display": "select",
+        "choices": [["none", "None"], ["shield-check", "Shield Check"], ["heart-pulse", "Heart Pulse"], ["stethoscope", "Stethoscope"], ["activity", "Activity"], ["workflow", "Workflow"], ["network", "Network"], ["line-chart", "Line Chart"], ["users", "Users"], ["bar-chart", "Bar Chart"], ["settings", "Settings"], ["flask", "Flask"], ["user-check", "User Check"]],
+        "default": "shield-check" },
+      { "name": "title", "label": "Title / label", "type": "text", "default": "" },
+      { "name": "description", "label": "Description", "type": "text", "default": "" }
+    ]
+  },
+  { "name": "show_takeaway", "label": "Show key takeaway callout", "type": "boolean", "display": "toggle", "default": false },
+  { "name": "takeaway", "label": "Key takeaway", "type": "richtext", "default": "<p><strong>Key takeaway:</strong> </p>" }
+]

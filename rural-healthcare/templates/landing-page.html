@@ -1,7 +1,7 @@
 <!--
   templateType: page
   isAvailableForNewContent: true
-  label: Landing page
+  label: Rural Healthcare Landing Page
   screenshotPath: ../images/template-previews/landing-page.png
 -->
 {% extends "./layouts/base.html" %}
@@ -11,31 +11,180 @@
 {% endblock header %}
 
 {% block body %}
-{% dnd_area "dnd_area"
-  label="Main section",
-  class="body-container body-container--landing-page"
+
+{# ============================================================
+   Rural Healthcare Solutions landing page.
+   Converted from src/components/RuralHealthcare.tsx into
+   editable HubSpot modules (rhs-hero, rhs-content, rhs-faq,
+   rhs-cta). Each section's content below is the editable
+   default; styling lives in css/rhs-landing.css.
+   ============================================================ #}
+
+{{ require_css(get_asset_url("../css/rhs-landing.css")) }}
+
+{# ---- Hero ---- #}
+{% module "hero" path="../modules/rhs-hero.module" %}
+
+{# ---- Trust bar ---- #}
+{% module "trust_bar" path="../modules/rhs-content.module",
+  background="default", width="wide", layout="trust", columns="4",
+  items=[
+    {"icon":"shield-check","title":"Clinically Validated Monitoring","description":"Patient monitoring solutions trusted across acute and progressive care environments in hospitals worldwide."},
+    {"icon":"network","title":"Built for Rural Networks","description":"Designed to extend clinical expertise across critical access hospitals and dispersed community facilities."},
+    {"icon":"heart-pulse","title":"Continuous Patient Visibility","description":"Real-time surveillance and decision support that help clinicians intervene before complications develop."},
+    {"icon":"users","title":"Partner to Rural Healthcare","description":"Decades of experience supporting hospitals through innovative monitoring and dedicated implementation."}
+  ]
 %}
 
-  {# Hero banner #}
+{# ---- Challenges ---- #}
+{% module "challenges" path="../modules/rhs-content.module",
+  background="default", width="narrow", layout="none",
+  heading="Understanding the Challenges Facing Rural Hospitals",
+  intro="<p>Rural healthcare organizations operate in an environment unlike any other healthcare setting. Many rural hospitals serve large geographic regions with limited access to specialty services and a relatively small workforce. Recruiting and retaining qualified nurses, physicians, respiratory therapists, and other healthcare professionals remains a persistent challenge.</p><p>Additional pressures include rising operational costs, limited capital budgets, aging patient populations, higher prevalence of chronic disease, reduced access to specialty care, increased regulatory requirements, and growing demand for services.</p>",
+  show_takeaway=true,
+  takeaway="<p><strong>Key takeaway:</strong> The goal is not simply to do more with less — it is to deliver exceptional patient care while maximizing available resources and supporting long-term community health.</p>"
+%}
 
-  {% include_dnd_partial
-    path="../sections/hero-banner.html"
-    context={
-      "content": "<h1>Download your free eBook</h1><p>Use this space to tell everyone what your eBook is all about.</p>"
-    }
-  %}
+{# ---- Why transformation matters ---- #}
+{% module "why_matters" path="../modules/rhs-content.module",
+  background="alt", width="narrow", layout="chips", columns="2",
+  accent_text="Why Rural Healthcare Transformation Matters",
+  intro="<p>The future of rural healthcare depends on the ability to deliver high-quality care in a sustainable and scalable manner. Technology solutions that improve visibility into patient conditions and streamline care delivery help organizations build a stronger foundation for future growth.</p><p>Transformation is not about replacing clinicians — it is about providing care teams with the information and tools they need to make faster, more informed decisions.</p>",
+  items=[
+    {"icon":"shield-check","title":"Improving patient outcomes"},
+    {"icon":"shield-check","title":"Supporting clinician well-being"},
+    {"icon":"shield-check","title":"Reducing preventable complications"},
+    {"icon":"shield-check","title":"Enhancing care coordination"},
+    {"icon":"shield-check","title":"Increasing operational efficiency"},
+    {"icon":"shield-check","title":"Strengthening financial performance"}
+  ]
+%}
 
-  {# Three column image with text #}
+{# ---- Earlier intervention ---- #}
+{% module "earlier_intervention" path="../modules/rhs-content.module",
+  background="default", width="narrow", layout="chips", columns="3", chip_align_top=true,
+  heading="Improving Patient Outcomes Through Earlier Intervention",
+  intro="<p>Changes in patient condition are often subtle and may develop over time. Without continuous visibility, deterioration can go unnoticed until a patient experiences a significant clinical event. Advanced patient monitoring and clinical surveillance technologies help clinicians recognize changes sooner by continuously analyzing patient data and highlighting potential concerns.</p>",
+  items=[
+    {"icon":"heart-pulse","title":"Improved patient safety"},
+    {"icon":"heart-pulse","title":"Reduced mortality"},
+    {"icon":"heart-pulse","title":"Fewer unexpected ICU transfers"},
+    {"icon":"heart-pulse","title":"Reduced hospital length of stay"},
+    {"icon":"heart-pulse","title":"Improved care quality metrics"},
+    {"icon":"heart-pulse","title":"Better patient experiences"}
+  ],
+  show_takeaway=true,
+  takeaway="<p><strong>Key takeaway:</strong> For rural hospitals, earlier intervention may help patients receive appropriate care locally — before requiring transfer to higher-acuity facilities.</p>"
+%}
 
-  {% include_dnd_partial
-    path="../sections/multi-column-content.html",
-    context={
-      "background_color": "#FFFFFF"
-    }
-  %}
+{# ---- Lean clinical teams ---- #}
+{% module "lean_teams" path="../modules/rhs-content.module",
+  background="alt", width="wide", layout="features", columns="3",
+  heading="Supporting Lean Clinical Teams",
+  intro="<p>Clinicians are being asked to care for more patients while managing increasing administrative responsibilities. Technology should support care teams — not create additional complexity. When clinicians spend less time navigating systems and more time at the bedside, organizations improve both efficiency and outcomes.</p>",
+  items=[
+    {"icon":"workflow","title":"Streamline Communication","description":"Cut noise and route the right alert to the right clinician."},
+    {"icon":"shield-check","title":"Reduce Interruptions","description":"Smart alarms and prioritization to fight alarm fatigue."},
+    {"icon":"activity","title":"Situational Awareness","description":"A unified view of every patient, in every unit."},
+    {"icon":"settings","title":"Simplify Telemetry","description":"One consistent workflow across care environments."},
+    {"icon":"user-check","title":"Standardize Care","description":"Embed best practices into the everyday workflow."},
+    {"icon":"users","title":"Optimize Staffing","description":"Extend clinical expertise without adding headcount."}
+  ]
+%}
 
-{% end_dnd_area %}
+{# ---- Connected care across the continuum ---- #}
+{% module "connected_care" path="../modules/rhs-content.module",
+  background="default", width="narrow", layout="steps",
+  heading="Connected Care Across the Continuum",
+  intro="<p>Patients move through multiple care environments throughout their healthcare journey. Maintaining visibility across these transitions is essential for delivering coordinated care. Connected monitoring platforms ensure critical information remains accessible across departments and locations.</p>",
+  items=[
+    {"title":"Emergency Departments"},
+    {"title":"Medical-Surgical Units"},
+    {"title":"Progressive Care Units"},
+    {"title":"Intensive Care Units"},
+    {"title":"Outpatient Settings"},
+    {"title":"Remote Monitoring"}
+  ]
+%}
+
+{# ---- Centralized monitoring ---- #}
+{% module "centralized" path="../modules/rhs-content.module",
+  background="alt", width="narrow", layout="chips", columns="2",
+  accent_text="Centralized Monitoring", accent_first=true, heading="for Rural Healthcare Networks",
+  intro="<p>Through centralized monitoring models, designated clinical teams can oversee patients across multiple departments or facilities from a single location. For rural healthcare networks, this approach can help extend access to specialized clinical expertise without requiring additional staff at every facility.</p>",
+  items=[
+    {"icon":"shield-check","title":"Continuous patient visibility"},
+    {"icon":"shield-check","title":"Enhanced clinical oversight"},
+    {"icon":"shield-check","title":"Faster escalation of concerns"},
+    {"icon":"shield-check","title":"Improved workflow consistency"},
+    {"icon":"shield-check","title":"Better resource utilization"},
+    {"icon":"shield-check","title":"Support for dispersed care environments"}
+  ]
+%}
+
+{# ---- Predictive analytics ---- #}
+{% module "predictive" path="../modules/rhs-content.module",
+  background="default", width="narrow", layout="chips", columns="3", chip_align_top=true,
+  heading="The Role of Predictive Analytics in Rural Healthcare",
+  intro="<p>Healthcare organizations are increasingly moving beyond reactive care models toward proactive and predictive approaches. Predictive analytics solutions analyze patient data trends and patterns to identify risks before serious clinical deterioration occurs.</p>",
+  items=[
+    {"icon":"line-chart","title":"Risk stratification"},
+    {"icon":"line-chart","title":"Prioritized clinical attention"},
+    {"icon":"line-chart","title":"Earlier intervention opportunities"},
+    {"icon":"line-chart","title":"Enhanced situational awareness"},
+    {"icon":"line-chart","title":"More efficient resource allocation"}
+  ],
+  show_takeaway=true,
+  takeaway="<p><strong>Key takeaway:</strong> Rather than waiting for a clinical event to occur, care teams can focus on patients who may require intervention before complications develop.</p>"
+%}
+
+{# ---- Sphere IQ suite ---- #}
+{% module "sphere" path="../modules/rhs-content.module",
+  background="alt", width="wide", layout="features", columns="3",
+  heading="Introducing the", accent_text="Sphere IQ Monitoring Suite™",
+  intro="<p>Spacelabs Healthcare's Sphere IQ Monitoring Suite™ is designed to support healthcare organizations through a connected, intelligent approach to patient monitoring and clinical surveillance — built with the realities of modern rural care in mind.</p>",
+  items=[
+    {"icon":"network","title":"Universal Monitoring Platform","description":"Scalable monitoring across multiple care environments through a consistent workflow and user experience."},
+    {"icon":"stethoscope","title":"Clinical Decision Support","description":"Advanced surveillance designed to help clinicians identify changes in patient condition and support earlier intervention."},
+    {"icon":"workflow","title":"Workflow Optimization","description":"Streamline communication, reduce operational complexity, and support efficient care delivery."},
+    {"icon":"activity","title":"Centralized Monitoring","description":"Configurable monitoring that extends clinical oversight across facilities and departments."},
+    {"icon":"heart-pulse","title":"Connected Care","description":"Integrated technologies that support continuity of care throughout the patient journey."}
+  ]
+%}
+
+{# ---- Financing ---- #}
+{% module "financing" path="../modules/rhs-content.module",
+  background="default", width="narrow", layout="none",
+  heading="Financing Options Designed for Rural Healthcare",
+  intro="<p>Capital budgets remain a significant concern for many rural healthcare organizations. Spacelabs Healthcare offers flexible financing approaches that may help organizations pursue technology upgrades while supporting financial predictability.</p><p>These options can provide access to advanced monitoring capabilities without requiring large upfront capital expenditure, helping healthcare leaders align investments with organizational goals.</p>"
+%}
+
+{# ---- Why partner with Spacelabs ---- #}
+{% module "why_spacelabs" path="../modules/rhs-content.module",
+  background="alt", width="narrow", layout="features", columns="2",
+  accent_text="Why Partner with Spacelabs Healthcare",
+  intro="<p>Healthcare organizations need more than technology — they need a partner that understands their challenges. As a company focused exclusively on patient monitoring, we understand the critical role that actionable clinical intelligence plays in improving care.</p>",
+  items=[
+    {"icon":"shield-check","title":"Advanced Monitoring Technology","description":"Patient monitoring built for the realities of modern care delivery."},
+    {"icon":"stethoscope","title":"Clinical Expertise","description":"Decades of experience supporting hospitals and health systems."},
+    {"icon":"workflow","title":"Workflow Optimization","description":"Strategies that fit how rural teams actually deliver care."},
+    {"icon":"user-check","title":"Dedicated Implementation","description":"Hands-on partnership through go-live and beyond."},
+    {"icon":"flask","title":"Ongoing Service & Education","description":"Continuous support for your clinicians and biomed teams."},
+    {"icon":"bar-chart","title":"Long-Term Partnership","description":"A commitment to meaningful outcomes for patients and communities."}
+  ]
+%}
+
+{# ---- FAQ (emits FAQPage JSON-LD) ---- #}
+{% module "faq" path="../modules/rhs-faq.module" %}
+
+{# ---- Final CTA ---- #}
+{% module "final_cta" path="../modules/rhs-cta.module" %}
+
+{# Service structured data (static; not tied to editable content) #}
+{% raw %}
+<script type="application/ld+json">
+{"@context":"https://schema.org","@type":"Service","serviceType":"Rural Hospital Patient Monitoring Solutions","provider":{"@type":"Organization","name":"Spacelabs Healthcare"},"areaServed":"United States","description":"Connected patient monitoring, centralized surveillance, and predictive analytics designed to help rural hospitals improve outcomes, support lean clinical teams, and extend access to care."}
+</script>
+{% endraw %}
+
 {% endblock body %}
-
-{% block footer %}
-{% endblock footer %}
