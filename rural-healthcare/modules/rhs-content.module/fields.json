@@ -25,5 +25,6 @@
     ]
   },
   { "name": "show_takeaway", "label": "Show key takeaway callout", "type": "boolean", "display": "toggle", "default": false },
-  { "name": "takeaway", "label": "Key takeaway", "type": "richtext", "default": "<p><strong>Key takeaway:</strong> </p>" }
+  { "name": "takeaway", "label": "Key takeaway", "type": "richtext", "default": "<p><strong>Key takeaway:</strong> </p>" },
+  { "name": "extra_class", "label": "Extra CSS class (advanced)", "type": "text", "default": "" }
 ]

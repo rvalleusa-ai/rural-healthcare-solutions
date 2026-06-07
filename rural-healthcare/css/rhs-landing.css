@@ -61,12 +61,20 @@ button, .button, .hs-button,
 .rhs-bg-alt { background: var(--rhs-section-alt); }
 .rhs-bg-default { background: var(--rhs-bg); }
 
+/* Per-section overrides (set via the content module's extra_class field) */
+/* Financing: widen the intro paragraph to pull up the last-line widow. */
+.rhs-sec-financing .rhs-container { max-width: 41.5rem; }
+.rhs-sec-financing .rhs-lead-wrap { max-width: 41.5rem; }
+/* Challenges: widen the takeaway so it fits two lines, and trim its box height. */
+.rhs-sec-challenges .rhs-container { max-width: 41.5rem; }
+.rhs-sec-challenges .rhs-takeaway { padding-block: 0.5rem; }
+
 .rhs-h2 { text-align: center; font-size: 0.975rem; font-weight: 700; color: var(--rhs-fg); }
 @media (min-width: 768px) { .rhs-h2 { font-size: 1.225rem; } }
 .rhs-accent { color: var(--rhs-highlight); }
 
 .rhs-lead { margin-top: 0.975rem; text-align: center; font-size: 0.725rem; line-height: 1.7; color: color-mix(in oklch, var(--rhs-fg) 85%, transparent); }
-.rhs-lead-wrap { max-width: 31rem; margin-inline: auto; }
+.rhs-lead-wrap { max-width: 35.65rem; margin-inline: auto; }
 .rhs-richtext > * + * { margin-top: 0.65rem; }
 .rhs-richtext p { font-size: 0.725rem; line-height: 1.7; color: color-mix(in oklch, var(--rhs-fg) 85%, transparent); }
 
@@ -86,7 +94,14 @@ button, .button, .hs-button,
 .rhs-grid-gap-lg { gap: 0.975rem; }
 @media (min-width: 640px) { .rhs-grid-2 { grid-template-columns: repeat(2, 1fr); } }
 @media (min-width: 640px) { .rhs-grid-3 { grid-template-columns: repeat(2, 1fr); } }
-@media (min-width: 1024px) { .rhs-grid-3 { grid-template-columns: repeat(3, 1fr); } }
+@media (min-width: 1024px) {
+  .rhs-grid-3 { grid-template-columns: repeat(6, 1fr); }
+  .rhs-grid-3 > * { grid-column: span 2; }
+  /* Center an orphan final row of 2 items in 5-item, 3-column grids
+     (Predictive analytics chips; Sphere IQ suite features). */
+  .rhs-grid-3 > :nth-child(4):nth-last-child(2) { grid-column: 2 / span 2; }
+  .rhs-grid-3 > :nth-child(5):nth-last-child(1) { grid-column: 4 / span 2; }
+}
 @media (min-width: 640px) { .rhs-grid-4 { grid-template-columns: repeat(2, 1fr); } }
 @media (min-width: 1024px) { .rhs-grid-4 { grid-template-columns: repeat(4, 1fr); } }
 
@@ -139,9 +154,9 @@ button, .button, .hs-button,
 @media (min-width: 1024px) { .rhs-hero h1 { font-size: 2.45rem; } }
 .rhs-hero-sub { margin-top: 0.65rem; font-size: 0.975rem; font-weight: 600; color: var(--rhs-highlight); }
 @media (min-width: 768px) { .rhs-hero-sub { font-size: 1.225rem; } }
-.rhs-hero-text { max-width: 31rem; margin: 0.975rem auto 0; font-size: 0.65rem; line-height: 1.7;
+.rhs-hero-text { max-width: 26rem; margin: 0.975rem auto 0; font-size: 0.575rem; line-height: 1.7;
   color: color-mix(in oklch, var(--rhs-hero-fg) 85%, transparent); }
-@media (min-width: 768px) { .rhs-hero-text { font-size: 0.725rem; } }
+@media (min-width: 768px) { .rhs-hero-text { font-size: 0.65rem; } }
 .rhs-hero-text > * + * { margin-top: 0.65rem; }
 .rhs-hero-text p { margin: 0; color: inherit; }
 .rhs-finalcta p + .rhs-btn-row { margin-top: 1.3rem; }
@@ -152,14 +167,14 @@ button, .button, .hs-button,
 .rhs-finalcta h2 { font-size: 0.8rem; font-weight: 700; color: var(--rhs-hero-fg); }
 @media (min-width: 640px) { .rhs-finalcta h2 { font-size: 0.975rem; } }
 @media (min-width: 768px) { .rhs-finalcta h2 { font-size: 1.225rem; } }
-.rhs-finalcta p { margin-top: 0.65rem; font-size: 0.725rem; line-height: 1.7;
+.rhs-finalcta p { margin-top: 0.65rem; max-width: 30rem; margin-inline: auto; font-size: 0.725rem; line-height: 1.7;
   color: color-mix(in oklch, var(--rhs-hero-fg) 80%, transparent); }
 
 /* FAQ accordion (native details/summary) */
 .rhs-faq { margin-top: 1.3rem; border: 1px solid var(--rhs-border); background: var(--rhs-card); border-radius: var(--rhs-radius); overflow: hidden; }
 .rhs-faq details + details { border-top: 1px solid var(--rhs-border); }
 .rhs-faq summary { list-style: none; cursor: pointer; display: flex; align-items: center; justify-content: space-between;
-  gap: 0.65rem; padding: 0.8rem 0.975rem; font-weight: 600; color: var(--rhs-fg); }
+  gap: 0.65rem; padding: 0.8rem 0.975rem; font-size: 0.725rem; font-weight: 600; color: var(--rhs-fg); }
 .rhs-faq summary::-webkit-details-marker { display: none; }
 .rhs-faq summary .rhs-icon-minus { display: none; color: var(--rhs-highlight); }
 .rhs-faq summary .rhs-icon-plus { color: var(--rhs-muted-fg); }

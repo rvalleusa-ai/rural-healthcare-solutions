@@ -16,7 +16,7 @@
   {% endif %}
 {% endmacro %}
 
-<section class="rhs rhs-section rhs-bg-{{ module.background }}">
+<section class="rhs rhs-section rhs-bg-{{ module.background }}{% if module.extra_class %} {{ module.extra_class }}{% endif %}">
   <div class="rhs-container rhs-{{ module.width }}">
 
     {% if module.heading or module.accent_text %}
