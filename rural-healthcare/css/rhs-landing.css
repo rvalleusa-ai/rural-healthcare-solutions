@@ -30,17 +30,17 @@ button, .button, .hs-button,
 }
 
 .rhs {
-  --rhs-bg: oklch(0.975 0 0);
+  --rhs-bg: oklch(0.992 0 0);
   --rhs-fg: oklch(0.18 0 0);
   --rhs-card: #ffffff;
   --rhs-muted-fg: oklch(0.48 0 0);
   --rhs-border: oklch(0.9 0 0);
   --rhs-hero-bg: oklch(0.17 0 0);
   --rhs-hero-fg: #ffffff;
-  --rhs-section-alt: oklch(0.955 0 0);
+  --rhs-section-alt: oklch(0.980 0 0);
   --rhs-highlight: #af272f;
   --rhs-highlight-fg: #ffffff;
-  --rhs-secondary: oklch(0.94 0 0);
+  --rhs-secondary: oklch(0.980 0 0);
   --rhs-radius: 0.5rem;
 
   font-family: 'Poppins', Arial, sans-serif;
@@ -53,7 +53,7 @@ button, .button, .hs-button,
 
 .rhs-container { width: 100%; margin-inline: auto; padding-inline: 1rem; max-width: 52rem; }
 .rhs-narrow { max-width: 36.5rem; }
-.rhs-wide { max-width: 41.5rem; }
+.rhs-wide { max-width: 52rem; }
 .rhs-prose { max-width: 31rem; }
 
 .rhs-section { padding-block: 2.6rem; }
@@ -181,3 +181,6 @@ button, .button, .hs-button,
 .rhs-faq details[open] summary .rhs-icon-minus { display: block; }
 .rhs-faq details[open] summary .rhs-icon-plus { display: none; }
 .rhs-faq .rhs-faq-a { padding: 0 0.975rem 0.8rem; font-size: 0.575rem; line-height: 1.7; color: var(--rhs-muted-fg); }
+#hs_cos_wrapper_trust_bar .rhs-section {
+  background: #fafafa !important;
+}
