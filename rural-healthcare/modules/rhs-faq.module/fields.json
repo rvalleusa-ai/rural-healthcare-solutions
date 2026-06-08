@@ -1,0 +1,22 @@
+[
+  { "name": "heading", "label": "Heading", "type": "text", "default": "Frequently Asked Questions" },
+  { "name": "emit_schema", "label": "Output FAQ structured data (JSON-LD)", "type": "boolean", "display": "toggle", "default": true },
+  {
+    "name": "items",
+    "label": "Questions",
+    "type": "group",
+    "occurrence": { "min": 0, "max": 25, "default": 6 },
+    "default": [
+      { "question": "What is a rural hospital?", "answer": "A rural hospital provides healthcare services to communities located outside major metropolitan areas and often serves as a primary source of care for local populations." },
+      { "question": "What is a Critical Access Hospital?", "answer": "Critical Access Hospitals are designated rural hospitals that meet specific federal requirements intended to improve healthcare access in underserved communities." },
+      { "question": "How can patient monitoring improve rural healthcare?", "answer": "Patient monitoring technologies provide continuous visibility into patient conditions, helping clinicians identify changes sooner and support timely intervention." },
+      { "question": "What is centralized patient monitoring?", "answer": "Centralized monitoring allows trained clinicians to monitor patients remotely from a central location, improving visibility and supporting efficient care delivery." },
+      { "question": "How can predictive analytics help hospitals?", "answer": "Predictive analytics identify trends and patterns that may indicate patient deterioration, helping clinicians prioritize care and intervene earlier." },
+      { "question": "Why is connected care important?", "answer": "Connected care improves communication and visibility across departments and facilities, supporting continuity of care and more informed clinical decision-making." }
+    ],
+    "children": [
+      { "name": "question", "label": "Question", "type": "text", "default": "" },
+      { "name": "answer", "label": "Answer", "type": "text", "default": "" }
+    ]
+  }
+]

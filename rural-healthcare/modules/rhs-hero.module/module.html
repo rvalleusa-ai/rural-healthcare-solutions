@@ -1,0 +1,20 @@
+{{ require_css(get_asset_url("../../css/rhs-landing.css")) }}
+{% set hero_src = module.background_image.src or get_asset_url("../../images/hero-monitoring.jpg") %}
+<section class="rhs">
+  <div class="rhs-hero">
+    {% if hero_src %}<img class="rhs-hero-img" src="{{ hero_src }}" alt="{{ module.background_image.alt }}" loading="eager">{% endif %}
+    <div class="rhs-hero-overlay"></div>
+    <div class="rhs-container rhs-hero-inner">
+      <div class="rhs-hero-content">
+        <h1>{{ module.heading }}</h1>
+        {% if module.subheading %}<p class="rhs-hero-sub">Improve patient outcomes. Expand access.<br>Optimize resources.</p>{% endif %}
+        {% if module.body_richtext %}<div class="rhs-hero-text">{{ module.body_richtext }}</div>{% endif %}
+        {% if module.button_text %}
+          <div class="rhs-btn-row">
+            <a href="{{ module.button_url }}" class="rhs-btn rhs-btn-primary">{{ module.button_text }}</a>
+          </div>
+        {% endif %}
+      </div>
+    </div>
+  </div>
+</section>

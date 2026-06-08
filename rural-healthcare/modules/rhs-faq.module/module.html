@@ -1,0 +1,23 @@
+{{ require_css(get_asset_url("../../css/rhs-landing.css")) }}
+<section class="rhs rhs-bg-alt" style="padding-top:0.975rem;padding-bottom:2.6rem;">
+  <div class="rhs-container rhs-prose">
+    {% if module.heading %}<h2 class="rhs-h2">{{ module.heading }}</h2>{% endif %}
+    <div class="rhs-faq">
+      {% for item in module.items %}
+      <details {% if loop.first %}open{% endif %}>
+        <summary>
+          <span>{{ item.question }}</span>
+          <svg class="rhs-icon rhs-icon-plus" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14"/><path d="M12 5v14"/></svg>
+          <svg class="rhs-icon rhs-icon-minus" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14"/></svg>
+        </summary>
+        <div class="rhs-faq-a">{{ item.answer }}</div>
+      </details>
+      {% endfor %}
+    </div>
+  </div>
+</section>
+{% if module.emit_schema %}
+<script type="application/ld+json">
+{"@context":"https://schema.org","@type":"FAQPage","mainEntity":[{% for item in module.items %}{"@type":"Question","name":"{{ item.question|striptags|replace('\n',' ')|replace('"','\\"') }}","acceptedAnswer":{"@type":"Answer","text":"{{ item.answer|striptags|replace('\n',' ')|replace('"','\\"') }}"}}{% if not loop.last %},{% endif %}{% endfor %}]}
+</script>
+{% endif %}
